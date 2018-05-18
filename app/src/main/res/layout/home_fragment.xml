@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:title="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--<titleview.TitleView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:id="@+id/title_main"-->
+        <!--title:title_name="主页"-->
+        <!--title:title_text_color="@color/txtBlack"-->
+        <!--title:title_text_size="14dp"-->
+        <!--&gt;</titleview.TitleView>-->
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+        <LinearLayout
+            android:id="@+id/linear1"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        
+            <customViews.CycleViewPager
+                android:id="@+id/cycle_view"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"></customViews.CycleViewPager>
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

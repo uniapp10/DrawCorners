@@ -9,7 +9,7 @@
     tools:context="com.example.zhudongdong.drawcorners.DrawingActivity">
 
     
-    <titleview.TitleView
+    <customViews.TitleView
         android:id="@+id/title_view"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -17,7 +17,7 @@
         app:title_text_color="@color/txtBlack"
         app:title_text_size="14dp"
         app:title_bg="@drawable/title_bg"
-        ></titleview.TitleView>
+        ></customViews.TitleView>
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_below="@+id/title_view"
@@ -58,5 +58,13 @@
             android:background="@drawable/tranfer_right"
             android:textColor="@color/tranfer_text"/>
     </RadioGroup>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Click"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:onClick="onClick"/>
 
 </RelativeLayout>

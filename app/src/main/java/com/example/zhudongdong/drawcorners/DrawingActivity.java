@@ -8,6 +8,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -32,6 +33,10 @@ public class DrawingActivity extends AppCompatActivity {
 //        rb.setChecked(true);
         RadioButton rb = findViewById(R.id.rb1);
         rb.setChecked(true);
+    }
+
+    public void onClick(View v){
+        StartActivity.startActivity(this);
     }
 
 }

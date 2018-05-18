@@ -1,4 +1,4 @@
-package titleview;
+package customViews;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -14,8 +14,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.zhudongdong.drawcorners.R;
-
-import org.w3c.dom.Text;
 
 /**
  * Created by zhudongdong on 2018/4/27.
