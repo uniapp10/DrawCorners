@@ -13,4 +13,6 @@
     <color name="tabNormal">#52668C</color>
     <color name="tabSelector">#3979DE</color>
     <color name="tabSeperator">#DEE3EB</color>
+
+    <color name="cycle_image_bg">#44222222</color>
 </resources>

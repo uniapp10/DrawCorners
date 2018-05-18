@@ -221,12 +221,11 @@ public class CycleViewPager extends FrameLayout implements ViewPager.OnPageChang
         //使用Picasso来加载图片
         Picasso.with(context).load(url).into(imageView);
         //在Imageview前添加一个半透明的黑色背景，防止文字和图片混在一起
-        imageView.setBackgroundResource(R.color.txtBlack);
         ImageView backGround = new ImageView(context);
         backGround.setLayoutParams(layoutParams);
-        backGround.setBackgroundResource(R.color.tabNormal);
+        backGround.setBackgroundResource(R.color.cycle_image_bg);
         rl.addView(imageView);
-//        rl.addView(backGround);
+        rl.addView(backGround);
         return rl;
     }
 
