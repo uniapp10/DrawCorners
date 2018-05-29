@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/home_analysis_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@mipmap/home_kuaixun"
+        app:civ_border_width="0dp"
+        app:civ_border_color="#FF000000"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/home_analysis_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="李翔"
+        android:layout_toRightOf="@+id/home_analysis_icon"
+        android:layout_alignTop="@+id/home_analysis_icon"
+        android:layout_marginLeft="10dp"/>
+    <TextView
+        android:id="@+id/home_analysis_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_alignTop="@+id/home_analysis_name"
+        android:text="04 月 10 日"
+        android:textSize="12sp"/>
+    <TextView
+        android:id="@+id/home_analysis_content"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/home_analysis_name"
+        android:layout_below="@+id/home_analysis_name"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:text="111111111111111111111111111111111111111111111"
+        android:layout_marginBottom="10dp"/>
+</RelativeLayout>

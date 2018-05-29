@@ -1,0 +1,51 @@
+package customViews;
+
+import android.content.Context;
+import android.support.annotation.Nullable;
+import android.util.AttributeSet;
+import android.widget.AbsListView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+
+import com.example.zhudongdong.drawcorners.R;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import Adapter.HomeNewsAdapter;
+import models.HomeNewsModel;
+
+/**
+ * Created by zhudongdong on 2018/5/28.
+ */
+
+public class HomeNewsView extends LinearLayout {
+
+    public HomeNewsView(Context context) {
+        this(context, null);
+    }
+
+    public HomeNewsView(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+
+        initView(context);
+    }
+
+    private void initView(Context context) {
+        ListView listView = new ListView(context);
+        LinearLayout.LayoutParams layoutParams = (LayoutParams)listView.getLayoutParams();
+//        layoutParams.height = LinearLayout.LayoutParams.WRAP_CONTENT;
+//        layoutParams.width = LayoutParams.MATCH_PARENT;
+        ArrayList newsList = new ArrayList();
+        HomeNewsModel model = new HomeNewsModel("早评","05-29 10:30", "http://www.fengup.com/uploads/allimg/170330/2_170330173950_1.jpg");
+        HomeNewsModel model1 = new HomeNewsModel("中评","05-29 1:30", "http://www.fengup.com/uploads/allimg/170330/2_170330173950_1.jpg");
+        HomeNewsModel model2 = new HomeNewsModel("早评","05-29 10:30", "http://www.fengup.com/uploads/allimg/170330/2_170330173950_1.jpg");
+        newsList.add(model);
+        newsList.add(model1);
+        newsList.add(model2);
+        addView(listView);
+        HomeNewsAdapter newsAdapter = new HomeNewsAdapter(context, R.layout.home_news_item, newsList);
+        listView.setAdapter(newsAdapter);
+    }
+}

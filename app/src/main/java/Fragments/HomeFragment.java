@@ -3,20 +3,26 @@ package Fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityManager;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.zhudongdong.drawcorners.MainActivity;
 import com.example.zhudongdong.drawcorners.R;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
+import Adapter.HomeAnalysisAdapter;
 import customViews.CycleViewPager;
 import customViews.Info;
+import models.HomeAnalysisModel;
 
 /**
  * Created by zhudongdong on 2018/5/8.
@@ -49,6 +55,24 @@ public class HomeFragment extends Fragment {
         mCycleViewPager.setIndicators(R.mipmap.ad_select, R.mipmap.ad_unselect);
         mCycleViewPager.setDelay(2000);
         mCycleViewPager.setData(mList, mImageCycleViewListener);
+
+        RecyclerView recyclerView = view.findViewById(R.id.recycleView_bottom);
+        HomeAnalysisModel analysisModel = new HomeAnalysisModel("http://img2.3lian.com/2014/c7/25/d/40.jpg","帅",
+                "4 月 10 5:10","股市大涨1000点");
+        HomeAnalysisModel analysisModel1 = new HomeAnalysisModel("http://img2.3lian.com/2014/c7/25/d/40.jpg","帅",
+                "4 月 10 5:10","股市大涨1000点");
+        HomeAnalysisModel analysisModel2 = new HomeAnalysisModel("http://img2.3lian.com/2014/c7/25/d/40.jpg","帅",
+                "4 月 10 5:10","股市大涨1000点");
+        List list = new ArrayList<HomeAnalysisModel>();
+        list.add(analysisModel);
+        list.add(analysisModel1);
+        list.add(analysisModel2);
+
+        HomeAnalysisAdapter homeAnalysisAdapter = new HomeAnalysisAdapter(view.getContext(), list);
+        //TODO为什么加 Manager ?
+        LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(homeAnalysisAdapter);
     }
 
     private CycleViewPager.ImageCycleViewListener mImageCycleViewListener = new CycleViewPager.ImageCycleViewListener() {
