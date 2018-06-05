@@ -21,8 +21,6 @@ import com.example.zhudongdong.drawcorners.R;
 
 public class TitleView extends RelativeLayout {
 
-    private TextView mRightTextTv;
-
 //    public TitleView(Context context, AttributeSet attrs) {
 //        super(context, attrs);
 //        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.TitleAttr);
@@ -32,6 +30,7 @@ public class TitleView extends RelativeLayout {
 //    }
 
     private TextView mLeftBackTextTv;
+    private TextView mRightTextTv;
     private int defaultTitleSize = 20;
 
     public TitleView(Context context) {
@@ -52,6 +51,7 @@ public class TitleView extends RelativeLayout {
         initLeftTextView(context, typedArray);
         initLeftImageView(context,typedArray);
         initTitleView(context ,typedArray);
+        initRightView(context, typedArray);
 
         Drawable background = typedArray.getDrawable(R.styleable.TitleAttr_title_bg);
         if(null != background) {
@@ -62,6 +62,22 @@ public class TitleView extends RelativeLayout {
             }
         }
         typedArray.recycle();
+    }
+
+    private void initRightView(Context context, TypedArray typedArray) {
+        int rightText = typedArray.getResourceId(R.styleable.TitleAttr_left_text, 0);
+        CharSequence charSequence = rightText > 0 ?
+                typedArray.getResources().getText(rightText) : typedArray.getString(R.styleable.TitleAttr_right_text);
+        LayoutParams params = initLayoutParams();
+
+        mRightTextTv = createTextView(context, R.id.tv_right_text, charSequence, params);
+        setTextViewDrawable(typedArray, R.styleable.TitleAttr_right_text_drawable_left, R.styleable.TitleAttr_right_text_drawable_right,
+                mRightTextTv);
+        params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+        float textSize = getDimensionPixelSize(typedArray, R.styleable.TitleAttr_small_text_size, defaultTitleSize);
+        mRightTextTv.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+        mRightTextTv.setTextColor(getTextColorFromAttr(typedArray));
+        addView(mRightTextTv);
     }
 
     private TextView mTitleTv;

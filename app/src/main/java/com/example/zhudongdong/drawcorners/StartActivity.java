@@ -68,14 +68,17 @@ public class StartActivity extends AppCompatActivity implements RadioGroup.OnChe
         }
 
         Fragment fragment = fragments.get(index);
-        if (fragment.isAdded() && (!fragment.isHidden())){
-            this.getSupportFragmentManager().beginTransaction().hide(oldFragment).commitAllowingStateLoss();
-            return;
-        }else if (fragment.isAdded() && fragment.isHidden()){
-            this.getSupportFragmentManager().beginTransaction().show(oldFragment).commitAllowingStateLoss();
+        if (fragment == oldFragment){
             return;
         }
-        oldFragment = fragments.get(index);
-        this.getSupportFragmentManager().beginTransaction().add(R.id.fragment_top, oldFragment).commitAllowingStateLoss();
+
+        if (fragment.isAdded()){
+            this.getSupportFragmentManager().beginTransaction().hide(oldFragment).commitAllowingStateLoss();
+            oldFragment = fragment;
+            this.getSupportFragmentManager().beginTransaction().show(fragment).commitAllowingStateLoss();
+        }else {
+            this.getSupportFragmentManager().beginTransaction().add(R.id.fragment_top, fragment).commitAllowingStateLoss();
+            oldFragment = fragment;
+        }
     }
 }

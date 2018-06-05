@@ -44,6 +44,7 @@ public class HomeNewsAdapter extends ArrayAdapter<HomeNewsModel> {
         HomeNewsModel homeNewsModel = getItem(position);
         tv_title.setText(homeNewsModel.getTitle());
         tv_subTitle.setText(homeNewsModel.getTime());
+        Picasso.with(parent.getContext()).load(homeNewsModel.getUrl()).into(iv);
 //        try{
 //            URL thumb_u = new URL(homeNewsModel.getUrl());
 //            Drawable thumb_d = Drawable.createFromStream(thumb_u.openStream(), "src");
@@ -51,7 +52,6 @@ public class HomeNewsAdapter extends ArrayAdapter<HomeNewsModel> {
 //        }catch (Exception e){
 //            e.printStackTrace();
 //        }
-        Picasso.with(parent.getContext()).load(homeNewsModel.getUrl()).into(iv);
 //        Uri uri = Uri.parse(homeNewsModel.getUrl());
 //        iv.setImageURI(Uri.parse(homeNewsModel.getUrl()));
 
