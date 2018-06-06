@@ -9,6 +9,8 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.PagerTitleStrip;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +25,10 @@ import android.widget.Toast;
 import com.example.zhudongdong.drawcorners.R;
 
 import java.util.ArrayList;
+
+import Adapter.PriceAdapter;
+import Interface.PriceItemOnClickListener;
+import models.PriceProductModel;
 
 /**
  * Created by zhudongdong on 2018/5/8.
@@ -39,7 +45,7 @@ public class PriceFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.price_fragment, container, false);
+        final View v = inflater.inflate(R.layout.price_fragment, container, false);
 
         mviewPager = v.findViewById(R.id.viewPager);
         bmpW = 30;
@@ -66,7 +72,39 @@ public class PriceFragment extends Fragment {
         LayoutInflater lf = getLayoutInflater().from(container.getContext());
         View v1 = lf.inflate(R.layout.hq_custom, null);
         View v2 = lf.inflate(R.layout.hq_shanghai, null);
+        RecyclerView rv1 = v1.findViewById(R.id.recycleView);
+        RecyclerView rv2 = v2.findViewById(R.id.recycleView);
+//        RecyclerView rv1 = v1.findViewById(R.id.recycleView);
+//        v1.setBackgroundColor(R.drawable.red_bg);
+//        v2.setBackgroundColor(R.drawable.title_bg);
 
+        final ArrayList<PriceProductModel> arrayList = new ArrayList<>();
+        PriceProductModel priceProductModel = new PriceProductModel("黄金延期",
+                "Au(T+D)","100.0","+8.00%");
+        PriceProductModel priceProductModel1 = new PriceProductModel("迷你黄金延期",
+                "mAu(T+D)","80.0","+8.00%");
+        PriceProductModel priceProductModel2 = new PriceProductModel("黄金延期",
+                "Ag(T+D)","50","+6.00%");
+        arrayList.add(priceProductModel);
+        arrayList.add(priceProductModel1);
+        arrayList.add(priceProductModel2);
+        PriceItemOnClickListener itemOnClickListener = new PriceItemOnClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                PriceProductModel priceProductModel =  arrayList.get(position);
+                Toast.makeText(v.getContext(),"选择了" + priceProductModel.getName(), Toast.LENGTH_SHORT).show();
+            }
+        };
+
+        PriceAdapter priceAdapter = new PriceAdapter(v.getContext(),arrayList, itemOnClickListener);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(v.getContext());
+        rv1.setLayoutManager(layoutManager);
+        rv1.setAdapter(priceAdapter);
+
+        PriceAdapter priceAdapter2 = new PriceAdapter(v.getContext(),arrayList, itemOnClickListener);
+        LinearLayoutManager layoutManager2 = new LinearLayoutManager(v.getContext());
+        rv2.setAdapter(priceAdapter2);
+        rv2.setLayoutManager(layoutManager2);
         final ArrayList<View> viewList = new ArrayList<View>();
         viewList.add(v1);
         viewList.add(v2);
