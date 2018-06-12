@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:id="@+id/service_jiepan_tv_left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="即将播出: 共赢美盘 袁婷 高级黄金分析师"
+            android:gravity="center"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="15dp"
+            android:textSize="12dp"
+            android:textColor="@color/txtGray"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="节目单"
+            android:gravity="center"
+            app:layout_constraintRight_toRightOf="parent"
+            android:padding="10dp"
+            app:layout_constraintTop_toTopOf="@+id/service_jiepan_tv_left"
+            app:layout_constraintBottom_toBottomOf="@+id/service_jiepan_tv_left"
+            android:layout_marginRight="15dp"
+            android:layout_gravity="right"
+            android:textSize="12dp"
+            android:textColor="@color/txtGray"
+            android:background="@drawable/service_jiepan_gray_bg"/>
+    </android.support.constraint.ConstraintLayout>
+</LinearLayout>

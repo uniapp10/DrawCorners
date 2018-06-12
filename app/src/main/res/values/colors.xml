@@ -9,6 +9,7 @@
     <color name="txtBlackBg">#b3000000</color>
     <color name="txtBlue">#0000ff</color>
     <color name="txtWhite">#fff</color>
+    <color name="txtGray">#808F9E</color>
 
     <color name="tabNormal">#52668C</color>
     <color name="tabSelector">#3979DE</color>

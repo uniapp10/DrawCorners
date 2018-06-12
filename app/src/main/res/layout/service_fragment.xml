@@ -2,8 +2,48 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="service"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+        <TextView
+            android:id="@+id/service_tv_jiepan"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="专家解盘"
+            android:gravity="center"
+            android:textSize="17sp"
+            android:textColor="@color/txtBlack"/>
+        <TextView
+            android:id="@+id/service_tv_zhibo"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="直播精华"
+            android:gravity="center"
+            android:textSize="17sp"
+            android:textColor="@color/txtBlack"/>
+        <TextView
+            android:id="@+id/service_tv_liaotian"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="聊天信息"
+            android:gravity="center"
+            android:textSize="17sp"
+            android:textColor="@color/txtBlack"/>
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/service_iv_cursor"
+        android:layout_width="30dp"
+        android:layout_height="2dp"
+        android:background="@color/txtBlack"/>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/service_vp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v4.view.ViewPager>
 </LinearLayout>

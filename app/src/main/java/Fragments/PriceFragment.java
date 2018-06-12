@@ -55,11 +55,15 @@ public class PriceFragment extends Fragment {
         wm.getDefaultDisplay().getMetrics(dm);
         int screenW = dm.widthPixels;
         offset = screenW / 2 - bmpW;
-        Matrix matrix = new Matrix();
-        matrix.postTranslate(offset, 0);
+//        Matrix matrix = new Matrix();
+//        matrix.postTranslate(60, 30);
 
         imageView = v.findViewById(R.id.cursor);
-        imageView.setImageMatrix(matrix);
+//        imageView.setImageMatrix(matrix);
+
+//        imageView.setTranslationX(offset/2);
+
+
         mviewPager.setOnPageChangeListener(new MyOnPageChangeListener());
 
 
