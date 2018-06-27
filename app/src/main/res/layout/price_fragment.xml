@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/txtRed">
-    <customViews.TitleView
+    <com.zdd.td.mine.customViews.TitleView
         android:layout_width="match_parent"
         android:layout_height="44dp"
         app:title_name="行情"
@@ -15,7 +15,7 @@
         app:right_text="添加"
         app:small_text_size="12dp"
         android:background="@color/txtWhite"
-        ></customViews.TitleView>
+        ></com.zdd.td.mine.customViews.TitleView>
 
 
     <LinearLayout

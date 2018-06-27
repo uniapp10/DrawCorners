@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.zhudongdong.drawcorners.MainActivity">
+    tools:context="com.example.zhudongdong.drawcorners.com.zdd.td.mine.Activity.MainActivity">
 
 
-    <customViews.TitleView
+    <com.zdd.td.mine.customViews.TitleView
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:id="@+id/title_main"
@@ -18,7 +18,7 @@
         title:title_text_size="14dp"
         title:small_text_size="12dp"
         title:left_text_drawable_left="@mipmap/trade_analysis"
-        ></customViews.TitleView>
+        ></com.zdd.td.mine.customViews.TitleView>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"

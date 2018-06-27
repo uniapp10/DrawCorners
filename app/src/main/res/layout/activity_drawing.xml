@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.zhudongdong.drawcorners.DrawingActivity">
+    tools:context="com.example.zhudongdong.drawcorners.com.zdd.td.mine.Activity.DrawingActivity">
 
     
-    <customViews.TitleView
+    <com.zdd.td.mine.customViews.TitleView
         android:id="@+id/title_view"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -17,7 +17,7 @@
         app:title_text_color="@color/txtBlack"
         app:title_text_size="14dp"
         app:title_bg="@drawable/title_bg"
-        ></customViews.TitleView>
+        ></com.zdd.td.mine.customViews.TitleView>
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_below="@+id/title_view"
