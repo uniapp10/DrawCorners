@@ -14,5 +14,283 @@
         app:right_image= "@mipmap/home_kuaixun"
         app:title_text_color = "@color/txtBlack"
         />
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="101dp"
+        android:paddingTop="15dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
 
+        <LinearLayout
+            android:id="@+id/mine_detail_layout_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/tv_productPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:text="278.66"
+                android:textColor="@color/txtGreen"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="-2.24"
+                android:textSize="12dp"
+                android:textColor="@color/txtGreen"
+                android:layout_toRightOf="@+id/tv_productPrice"
+                android:layout_alignTop="@+id/tv_productPrice"
+                android:gravity="center"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-0.38%"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/txtGreen"
+                android:textSize="12dp"/>
+        </LinearLayout>
+        <RelativeLayout
+            android:id="@+id/mine_detail_layout_two"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/mine_detail_layout_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="最高"
+                    android:textSize="14sp"
+                    android:textColor="@color/txtBlack"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="280.07"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/txtGreen"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="今开"
+                    android:textSize="14sp"
+                    android:textColor="@color/txtBlack"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="280.07"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/txtGreen"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="成交"
+                    android:textSize="14sp"
+                    android:textColor="@color/txtBlack"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="280.07"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/txtGreen"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout
+
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/mine_detail_layout_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="今开"
+                    android:textSize="14sp"
+                    android:textColor="@color/txtBlack"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="280.07"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/txtGreen"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="昨结"
+                    android:textSize="14sp"
+                    android:textColor="@color/txtBlack"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="280.07"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/txtGreen"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="持仓"
+                    android:textSize="14sp"
+                    android:textColor="@color/txtBlack"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="280.07"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/txtGreen"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:orientation="vertical">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="44dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="分时"
+                    android:textColor="@color/txtBlack"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:text="两日"
+                    android:textColor="@color/txtBlack"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:text="1分"
+                    android:textColor="@color/txtBlack"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:text="5分"
+                    android:textColor="@color/txtBlack"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:text="15分"
+                    android:textColor="@color/txtBlack"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:text="30分"
+                    android:textColor="@color/txtBlack"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:text="60分"
+                    android:textColor="@color/txtBlack"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:text="两日"
+                    android:textColor="@color/txtBlack"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:text="月K"
+                    android:textColor="@color/txtBlack"
+                    android:textSize="14dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:text="所有"
+                    android:textColor="@color/txtBlack"
+                    android:textSize="14dp" />
+            </LinearLayout>
+        </HorizontalScrollView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/txtGreen">
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>
