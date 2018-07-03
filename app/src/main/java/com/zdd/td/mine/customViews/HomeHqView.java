@@ -14,6 +14,7 @@ import com.example.zhudongdong.drawcorners.R;
 import java.util.ArrayList;
 
 import com.zdd.td.mine.Adapter.HomeHqAdapter;
+import com.zdd.td.mine.Fragments.MineActivity.MineProductDetailActivity;
 import com.zdd.td.mine.Interface.HomeHqItemListener;
 import com.zdd.td.mine.models.HomeHqModel;
 
@@ -68,7 +69,8 @@ public class HomeHqView extends RelativeLayout implements HomeHqItemListener {
         if (pos < listHq.size()){
 
             HomeHqModel hqModel1 = listHq.get(pos);
-            Toast.makeText(getContext(), hqModel1.getName(), Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getContext(), hqModel1.getName(), Toast.LENGTH_SHORT).show();
+            MineProductDetailActivity.start(getContext(), hqModel1);
         }else {
             Toast.makeText(getContext(), "查看自选", Toast.LENGTH_SHORT).show();
         }

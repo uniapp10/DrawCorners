@@ -1,10 +1,12 @@
 package com.zdd.td.mine.models;
 
+import java.io.Serializable;
+
 /**
  * Created by zhudongdong on 2018/5/25.
  */
 
-public class HomeHqModel {
+public class HomeHqModel  implements Serializable{
 
     private String name;
     private String price;

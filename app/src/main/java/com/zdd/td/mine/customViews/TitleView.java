@@ -9,11 +9,13 @@ import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.zhudongdong.drawcorners.R;
+import com.zdd.td.mine.Interface.MineTitleBackListener;
 
 /**
  * Created by zhudongdong on 2018/4/27.
@@ -29,9 +31,14 @@ public class TitleView extends RelativeLayout {
 //        typedArray.recycle();
 //    }
 
-    private TextView mLeftBackTextTv;
+    public TextView mLeftBackTextTv;
     private TextView mRightTextTv;
     private int defaultTitleSize = 20;
+    private ImageView mRightImageIv;
+
+    public void setTitleName(String name){
+        mTitleTv.setText(name);
+    }
 
     public TitleView(Context context) {
         this(context, null);
@@ -52,6 +59,7 @@ public class TitleView extends RelativeLayout {
         initLeftImageView(context,typedArray);
         initTitleView(context ,typedArray);
         initRightView(context, typedArray);
+        initRightImageView(context, typedArray);
 
         Drawable background = typedArray.getDrawable(R.styleable.TitleAttr_title_bg);
         if(null != background) {
@@ -81,6 +89,10 @@ public class TitleView extends RelativeLayout {
     }
 
     private TextView mTitleTv;
+
+    public void getTitleName(String text){
+        mTitleTv.setText(text);
+    }
 
     //中间标题
     private void initTitleView(Context context, TypedArray typedArray){
@@ -131,7 +143,20 @@ public class TitleView extends RelativeLayout {
         if (leftImageAttr != 0){
             LayoutParams params = initLayoutParams();
             mLeftBackImageTv = createImageView(context, R.id.iv_left_image, leftImageAttr, params);
+            params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+            addView(mLeftBackImageTv);
         }
+    }
+
+    private void initRightImageView(Context context, TypedArray typedArray){
+        int rightImgAttr = typedArray.getResourceId(R.styleable.TitleAttr_right_image, 0);
+        if (rightImgAttr ==0){
+            return;
+        }
+        LayoutParams params = initLayoutParams();
+        mRightImageIv = createImageView(context, R.id.iv_right_image, rightImgAttr, params);
+        params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+        addView(mRightImageIv);
     }
 
     @NonNull

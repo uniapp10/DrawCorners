@@ -24,6 +24,8 @@
         <activity android:name="com.zdd.td.mine.Activity.MainActivity"></activity>
 
         <activity android:name="com.zdd.td.mine.Activity.AccountDetailActivity"/>
+        <activity
+            android:name="com.zdd.td.mine.Fragments.MineActivity.MineProductDetailActivity"/>
     </application>
 
 </manifest>
