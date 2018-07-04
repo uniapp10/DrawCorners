@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import com.zdd.td.mine.Adapter.HomeHqAdapter;
 import com.zdd.td.mine.Fragments.MineActivity.MineProductDetailActivity;
 import com.zdd.td.mine.Interface.HomeHqItemListener;
+import com.zdd.td.mine.Interface.HomeHqZiXuanListener;
 import com.zdd.td.mine.models.HomeHqModel;
 
 /**
@@ -23,6 +24,8 @@ import com.zdd.td.mine.models.HomeHqModel;
  */
 
 public class HomeHqView extends RelativeLayout implements HomeHqItemListener {
+
+    private HomeHqZiXuanListener zixuanListener;
 
     private RecyclerView mRecycleView;
     private HomeHqAdapter homeHqAdapter;
@@ -67,12 +70,15 @@ public class HomeHqView extends RelativeLayout implements HomeHqItemListener {
     @Override
     public void onItemClick(int pos, View v) {
         if (pos < listHq.size()){
-
             HomeHqModel hqModel1 = listHq.get(pos);
 //            Toast.makeText(getContext(), hqModel1.getName(), Toast.LENGTH_SHORT).show();
             MineProductDetailActivity.start(getContext(), hqModel1);
         }else {
-            Toast.makeText(getContext(), "查看自选", Toast.LENGTH_SHORT).show();
+            this.zixuanListener.onClick();
         }
+    }
+
+    public void addZiXuanListener(HomeHqZiXuanListener listener) {
+        this.zixuanListener = listener;
     }
 }

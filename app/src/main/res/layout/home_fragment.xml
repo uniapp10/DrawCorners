@@ -32,6 +32,7 @@
                 android:layout_height="200dp"></com.zdd.td.mine.customViews.CycleViewPager>
 
             <com.zdd.td.mine.customViews.HomeHqView
+                android:id="@+id/home_hq_view"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"></com.zdd.td.mine.customViews.HomeHqView>
 

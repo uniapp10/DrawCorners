@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/bg">
     <com.zdd.td.mine.customViews.TitleView
         android:id="@+id/mine_detail_titleView"
         android:background="@color/txtWhite"
@@ -20,7 +21,8 @@
         android:layout_height="101dp"
         android:paddingTop="15dp"
         android:paddingLeft="15dp"
-        android:paddingRight="15dp">
+        android:paddingRight="15dp"
+        android:background="@color/txtWhite">
 
         <LinearLayout
             android:id="@+id/mine_detail_layout_one"
@@ -184,15 +186,18 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="15dp"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/txtWhite">
 
         <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="44dp">
+            android:layout_height="44dp"
+            android:scrollbars="none">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -293,4 +298,63 @@
             android:background="@color/txtGreen">
         </LinearLayout>
     </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp">
+        <LinearLayout
+            android:id="@+id/layout_left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_zixuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="添加自选"
+                android:drawableTop="@mipmap/icon_right_arrow"/>
+            <TextView
+                android:id="@+id/tv_tixing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="提醒"
+                android:layout_marginLeft="15dp"
+                android:drawableTop="@mipmap/icon_right_arrow"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_toRightOf="@+id/layout_left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp">
+            <TextView
+                android:id="@+id/tv_maikong"
+                android:layout_toRightOf="@+id/layout_left"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:text="卖空"
+                android:gravity="center"
+                android:background="@drawable/trade_text_bg_green"/>
+            <TextView
+                android:id="@+id/tv_maiduo"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:text="买多"
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:background="@drawable/trade_text_bg_red"/>
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tv_kuaijie"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="快捷"
+            android:drawableRight="@mipmap/icon_right_arrow"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
 </LinearLayout>

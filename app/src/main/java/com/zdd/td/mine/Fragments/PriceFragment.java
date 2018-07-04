@@ -24,7 +24,9 @@ import com.example.zhudongdong.drawcorners.R;
 import java.util.ArrayList;
 
 import com.zdd.td.mine.Adapter.PriceAdapter;
+import com.zdd.td.mine.Interface.HomeHqZiXuanListener;
 import com.zdd.td.mine.Interface.PriceItemOnClickListener;
+import com.zdd.td.mine.customViews.HomeHqView;
 import com.zdd.td.mine.models.PriceProductModel;
 
 /**
@@ -154,6 +156,7 @@ public class PriceFragment extends Fragment {
 
         tv1.setOnClickListener(new MyOnClickListener(0));
         tv2.setOnClickListener(new MyOnClickListener(1));
+
         return v;
     }
 

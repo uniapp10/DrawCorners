@@ -17,6 +17,7 @@ import com.zdd.td.mine.Fragments.MineFragment;
 import com.zdd.td.mine.Fragments.PriceFragment;
 import com.zdd.td.mine.Fragments.ServiceFragment;
 import com.zdd.td.mine.Fragments.TradeFragment;
+import com.zdd.td.mine.Interface.HomeHqZiXuanListener;
 
 public class StartActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
 
@@ -36,12 +37,19 @@ public class StartActivity extends AppCompatActivity implements RadioGroup.OnChe
         setContentView(R.layout.activity_start);
 
 
-        RadioGroup rg = findViewById(R.id.rgbs);
+        final RadioGroup rg = findViewById(R.id.rgbs);
         RadioButton rb_home = findViewById(R.id.tab_home);
         rb_home.setChecked(true);
 
         fragments = new ArrayList<Fragment>();
-        fragments.add(new HomeFragment());
+        final HomeFragment homeFragment = new HomeFragment();
+        fragments.add(homeFragment);
+        homeFragment.addZiXuanListener(new HomeHqZiXuanListener() {
+            @Override
+            public void onClick() {
+                rg.check(R.id.tab_price);
+            }
+        });
         fragments.add(new PriceFragment());
         fragments.add(new TradeFragment());
         fragments.add(new ServiceFragment());

@@ -16,7 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.zdd.td.mine.Adapter.HomeAnalysisAdapter;
+import com.zdd.td.mine.Interface.HomeHqZiXuanListener;
 import com.zdd.td.mine.customViews.CycleViewPager;
+import com.zdd.td.mine.customViews.HomeHqView;
 import com.zdd.td.mine.customViews.Info;
 import com.zdd.td.mine.models.HomeAnalysisModel;
 
@@ -69,6 +71,25 @@ public class HomeFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(homeAnalysisAdapter);
+        initListener(view);
+    }
+
+    public void addZiXuanListener(HomeHqZiXuanListener listener){
+        hqZiXuanListener = listener;
+    }
+
+    private HomeHqZiXuanListener hqZiXuanListener;
+
+    private void initListener(View v) {
+        HomeHqView hqView = v.findViewById(R.id.home_hq_view);
+        hqView.addZiXuanListener(new HomeHqZiXuanListener() {
+            @Override
+            public void onClick() {
+                if (hqZiXuanListener!=null){
+                    hqZiXuanListener.onClick();
+                }
+            }
+        });
     }
 
     private CycleViewPager.ImageCycleViewListener mImageCycleViewListener = new CycleViewPager.ImageCycleViewListener() {
