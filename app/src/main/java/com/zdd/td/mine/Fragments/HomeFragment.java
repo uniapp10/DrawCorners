@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.zhudongdong.drawcorners.R;
@@ -15,6 +16,7 @@ import com.example.zhudongdong.drawcorners.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.zdd.td.mine.Activity.HomeNewsActivity;
 import com.zdd.td.mine.Adapter.HomeAnalysisAdapter;
 import com.zdd.td.mine.Interface.HomeHqZiXuanListener;
 import com.zdd.td.mine.customViews.CycleViewPager;
@@ -26,7 +28,7 @@ import com.zdd.td.mine.models.HomeAnalysisModel;
  * Created by zhudongdong on 2018/5/8.
  */
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener{
 
     List<Info> mList = new ArrayList<>();
     CycleViewPager mCycleViewPager;
@@ -90,6 +92,13 @@ public class HomeFragment extends Fragment {
                 }
             }
         });
+
+        TextView tv_news = v.findViewById(R.id.tv_news);
+        TextView tv_calendar = v.findViewById(R.id.tv_calendar);
+        TextView tv_analysis = v.findViewById(R.id.tv_analysis);
+        tv_news.setOnClickListener(this);
+        tv_calendar.setOnClickListener(this);
+        tv_analysis.setOnClickListener(this);
     }
 
     private CycleViewPager.ImageCycleViewListener mImageCycleViewListener = new CycleViewPager.ImageCycleViewListener() {
@@ -101,4 +110,16 @@ public class HomeFragment extends Fragment {
             Toast.makeText(getContext(), info.getTitle() , Toast.LENGTH_SHORT).show();
         }
     };
+
+    @Override
+    public void onClick(View v) {
+        int vID = v.getId();
+        switch (vID){
+            case R.id.tv_news:
+            case R.id.tv_calendar:
+            case R.id.tv_analysis:
+                HomeNewsActivity.start(getContext());
+                break;
+        }
+    }
 }

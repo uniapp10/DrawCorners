@@ -101,16 +101,16 @@ public class ServiceFragment extends Fragment implements ViewPager.OnPageChangeL
     //TODO OnPageChangeListener
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
+        Log.d(TAG, "onPageScrolled: " + position + "  " + positionOffset + " " + positionOffsetPixels);
     }
 
     @Override
     public void onPageSelected(int position) {
-
+        Log.d(TAG, "onPageSelected: " + position );
     }
 
     @Override
     public void onPageScrollStateChanged(int state) {
-
+        Log.d(TAG, "onPageScrollStateChanged: " + state );
     }
 }
