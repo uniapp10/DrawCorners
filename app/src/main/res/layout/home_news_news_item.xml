@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="100dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="10dp">
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:src="@drawable/trade_text_bg_red"
+        />
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="金银调整,股市政党,跳楼的人很多,我该怎么救他们?"
+        android:layout_toRightOf="@+id/iv_icon"
+        android:layout_marginLeft="15dp"/>
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="18:52:33"
+        android:textColor="@color/txtGray"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@+id/iv_icon"/>
+</RelativeLayout>

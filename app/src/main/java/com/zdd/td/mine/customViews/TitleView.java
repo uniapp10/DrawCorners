@@ -111,7 +111,7 @@ public class TitleView extends RelativeLayout {
         int gravity = typedArray.getInt(R.styleable.TitleAttr_title_gravity, 0);
         if (gravity > 0){
             if (gravity == Gravity.LEFT){
-                params.addRule(RelativeLayout.RIGHT_OF, mLeftBackImageTv == null ? mLeftBackTextTv.getId():mLeftBackImageTv.getId());
+                params.addRule(RelativeLayout.RIGHT_OF, mLeftBackImageIv == null ? mLeftBackTextTv.getId():mLeftBackImageIv.getId());
             }
         }else {
             params.addRule(RelativeLayout.CENTER_IN_PARENT);
@@ -136,15 +136,15 @@ public class TitleView extends RelativeLayout {
         addView(mLeftBackTextTv);
     }
 
-    private ImageView mLeftBackImageTv;
+    public ImageView mLeftBackImageIv;
 
     private void initLeftImageView(Context context, TypedArray typedArray){
         int leftImageAttr = typedArray.getResourceId(R.styleable.TitleAttr_left_image, 0);
         if (leftImageAttr != 0){
             LayoutParams params = initLayoutParams();
-            mLeftBackImageTv = createImageView(context, R.id.iv_left_image, leftImageAttr, params);
+            mLeftBackImageIv = createImageView(context, R.id.iv_left_image, leftImageAttr, params);
             params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-            addView(mLeftBackImageTv);
+            addView(mLeftBackImageIv);
         }
     }
 

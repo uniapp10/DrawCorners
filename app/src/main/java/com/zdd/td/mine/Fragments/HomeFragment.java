@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.zdd.td.mine.Activity.HomeNewsActivity;
+import com.zdd.td.mine.Activity.HomeNewsServiceActivity;
 import com.zdd.td.mine.Adapter.HomeAnalysisAdapter;
 import com.zdd.td.mine.Interface.HomeHqZiXuanListener;
 import com.zdd.td.mine.customViews.CycleViewPager;
@@ -96,9 +97,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         TextView tv_news = v.findViewById(R.id.tv_news);
         TextView tv_calendar = v.findViewById(R.id.tv_calendar);
         TextView tv_analysis = v.findViewById(R.id.tv_analysis);
+        TextView tv_service = v.findViewById(R.id.tv_service);
         tv_news.setOnClickListener(this);
         tv_calendar.setOnClickListener(this);
         tv_analysis.setOnClickListener(this);
+        tv_service.setOnClickListener(this);
     }
 
     private CycleViewPager.ImageCycleViewListener mImageCycleViewListener = new CycleViewPager.ImageCycleViewListener() {
@@ -116,9 +119,16 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         int vID = v.getId();
         switch (vID){
             case R.id.tv_news:
+                HomeNewsActivity.start(getContext(),0);
+                break;
             case R.id.tv_calendar:
+                HomeNewsActivity.start(getContext(),1);
+                break;
             case R.id.tv_analysis:
-                HomeNewsActivity.start(getContext());
+                HomeNewsActivity.start(getContext(),2);
+                break;
+            case R.id.tv_service:
+                HomeNewsServiceActivity.start(getContext());
                 break;
         }
     }
