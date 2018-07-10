@@ -12,10 +12,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.zhudongdong.drawcorners.R;
+import com.zdd.td.mine.Tool.ScreenTool;
 
 import java.util.ArrayList;
 
@@ -27,6 +30,12 @@ import static android.content.ContentValues.TAG;
 
 public class ServiceFragment extends Fragment implements ViewPager.OnPageChangeListener {
     private int imgW;
+    private float originPoint = 0;
+    private float targetPoint = 0;
+    private float offsetX;
+    private int screenWidth;
+    private ImageView iv_cursor;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -40,7 +49,7 @@ public class ServiceFragment extends Fragment implements ViewPager.OnPageChangeL
         TextView tv_jiepan = view.findViewById(R.id.service_tv_jiepan);
         TextView tv_zhibo = view.findViewById(R.id.service_tv_zhibo);
         TextView tv_liaotian = view.findViewById(R.id.service_tv_liaotian);
-        ImageView iv_cursor = view.findViewById(R.id.service_iv_cursor);
+        iv_cursor = view.findViewById(R.id.service_iv_cursor);
         imgW = 30;
 
         DisplayMetrics dm = new DisplayMetrics();
@@ -48,7 +57,7 @@ public class ServiceFragment extends Fragment implements ViewPager.OnPageChangeL
         wm.getDefaultDisplay().getMetrics(dm);
         int screenW = dm.widthPixels;
         float px_image = imgW * (dm.xdpi/160);
-        float offsetX = (screenW / 3 - px_image)/2 - px_image/2;
+        offsetX = (screenW / 3 - px_image)/2 - px_image/2;
         iv_cursor.setTranslationX(offsetX * 160 / dm.xdpi);
 
         ViewPager vp = view.findViewById(R.id.service_vp);
@@ -96,6 +105,16 @@ public class ServiceFragment extends Fragment implements ViewPager.OnPageChangeL
         };
         vp.setAdapter(pagerAdapter);
         vp.addOnPageChangeListener(this);
+
+        screenWidth = ScreenTool.getScreenWidth(getContext());
+        originPoint = 0;
+        offsetX = (float) (((screenW / 3.0) - ScreenTool.dip2px(getContext(), imgW))/2.0);
+        targetPoint = offsetX;
+        Animation animation = new TranslateAnimation(originPoint, targetPoint, 0, 0);
+        animation.setFillAfter(true);
+        animation.setDuration(300);
+        iv_cursor.startAnimation(animation);
+        originPoint = targetPoint;
     }
 
     //TODO OnPageChangeListener
@@ -104,9 +123,17 @@ public class ServiceFragment extends Fragment implements ViewPager.OnPageChangeL
         Log.d(TAG, "onPageScrolled: " + position + "  " + positionOffset + " " + positionOffsetPixels);
     }
 
+
+
     @Override
     public void onPageSelected(int position) {
-        Log.d(TAG, "onPageSelected: " + position );
+
+        targetPoint = (float) (position * (screenWidth/3.0) + offsetX);
+        Animation animation = new TranslateAnimation(originPoint,targetPoint, 0, 0);
+        originPoint = targetPoint;
+        animation.setFillAfter(true);
+        animation.setDuration(300);
+        iv_cursor.startAnimation(animation);
     }
 
     @Override
