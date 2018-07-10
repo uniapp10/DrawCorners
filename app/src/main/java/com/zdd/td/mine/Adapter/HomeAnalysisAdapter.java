@@ -13,6 +13,8 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+
+import com.zdd.td.mine.Interface.HomeBottomRecyclerViewListener;
 import com.zdd.td.mine.models.HomeAnalysisModel;
 
 /**
@@ -23,9 +25,11 @@ public class HomeAnalysisAdapter extends RecyclerView.Adapter <HomeAnalysisAdapt
 
     private List<HomeAnalysisModel> homeAnalysisModelList;
     private Context context;
-    public HomeAnalysisAdapter(Context context ,List<HomeAnalysisModel> homeAnalysisModelList){
+    private HomeBottomRecyclerViewListener mlistener;
+    public HomeAnalysisAdapter(Context context , List<HomeAnalysisModel> homeAnalysisModelList, HomeBottomRecyclerViewListener listener){
         this.context = context;
         this.homeAnalysisModelList = homeAnalysisModelList;
+        mlistener = listener;
     }
     @Override
     public HomeAnalysisAdapter.HomeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -36,14 +40,21 @@ public class HomeAnalysisAdapter extends RecyclerView.Adapter <HomeAnalysisAdapt
     }
 
     @Override
-    public void onBindViewHolder(HomeViewHolder holder, int position) {
-        HomeAnalysisModel homeAnalysisModel = homeAnalysisModelList.get(position);
+    public void onBindViewHolder(HomeViewHolder holder, final int position) {
+        final HomeAnalysisModel homeAnalysisModel = homeAnalysisModelList.get(position);
 
         Picasso.with(this.context).load(homeAnalysisModel.getIconUrl()).into(holder.circleImageView);
         holder.tv_name.setText(homeAnalysisModel.getName());
         holder.tv_time.setText(homeAnalysisModel.getTime());
         holder.tv_content.setText(homeAnalysisModel.getContent());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mlistener.onClick(homeAnalysisModel, position);
+            }
+        });
     }
+
 
     @Override
     public int getItemCount() {

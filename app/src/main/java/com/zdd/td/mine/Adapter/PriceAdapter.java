@@ -33,7 +33,7 @@ public class PriceAdapter extends RecyclerView.Adapter<PriceAdapter.PriceViewHol
 
     @Override
     public PriceViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.price_product_item, null);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.price_product_item, parent,false);
         PriceViewHolder priceViewHolder = new PriceViewHolder(view);
         view.setOnClickListener(this);
         return priceViewHolder;

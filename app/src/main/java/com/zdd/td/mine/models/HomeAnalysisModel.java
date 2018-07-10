@@ -1,10 +1,12 @@
 package com.zdd.td.mine.models;
 
+import java.io.Serializable;
+
 /**
  * Created by zhudongdong on 2018/5/29.
  */
 
-public class HomeAnalysisModel {
+public class HomeAnalysisModel implements Serializable {
 
     private String iconUrl;
 
@@ -44,12 +46,23 @@ public class HomeAnalysisModel {
     private String time;
     private String content;
 
+    public String getContentUrl() {
+        return contentUrl;
+    }
+
+    public void setContentUrl(String contentUrl) {
+        this.contentUrl = contentUrl;
+    }
+
+    private String contentUrl;
+
 
     public HomeAnalysisModel(String iconUrl, String name, String time, String content) {
         this.iconUrl = iconUrl;
         this.name = name;
         this.time = time;
         this.content = content;
+        this.contentUrl = "https://blog.csdn.net/carson_ho/article/details/52693322";
     }
 
 }

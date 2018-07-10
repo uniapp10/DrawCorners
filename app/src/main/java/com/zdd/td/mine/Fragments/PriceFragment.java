@@ -26,8 +26,11 @@ import java.util.ArrayList;
 import com.zdd.td.mine.Adapter.PriceAdapter;
 import com.zdd.td.mine.Interface.HomeHqZiXuanListener;
 import com.zdd.td.mine.Interface.PriceItemOnClickListener;
+import com.zdd.td.mine.Tool.ScreenTool;
 import com.zdd.td.mine.customViews.HomeHqView;
 import com.zdd.td.mine.models.PriceProductModel;
+
+import static android.widget.LinearLayout.VERTICAL;
 
 /**
  * Created by zhudongdong on 2018/5/8.
@@ -39,7 +42,7 @@ public class PriceFragment extends Fragment {
     private ImageView imageView;
     private int offset = 0;
     private int currIndex = 0;
-    private int bmpW;
+    private int imageViewWidth;
 
     @Nullable
     @Override
@@ -47,21 +50,17 @@ public class PriceFragment extends Fragment {
         final View v = inflater.inflate(R.layout.price_fragment, container, false);
 
         mviewPager = v.findViewById(R.id.viewPager);
-        bmpW = 30;
+
+
+        imageView = v.findViewById(R.id.cursor);
+        imageViewWidth = 30;
         DisplayMetrics dm = new DisplayMetrics();
         WindowManager wm = (WindowManager) container.getContext()
                 .getSystemService(Context.WINDOW_SERVICE);
         wm.getDefaultDisplay().getMetrics(dm);
         int screenW = dm.widthPixels;
-        offset = screenW / 2 - bmpW;
-//        Matrix matrix = new Matrix();
-//        matrix.postTranslate(60, 30);
-
-        imageView = v.findViewById(R.id.cursor);
-//        imageView.setImageMatrix(matrix);
-
-//        imageView.setTranslationX(offset/2);
-
+        offset = (screenW / 2 - ScreenTool.dip2px(getContext(), imageViewWidth))/2;
+        imageView.setTranslationX(offset);
 
         mviewPager.setOnPageChangeListener(new MyOnPageChangeListener());
 
@@ -101,6 +100,8 @@ public class PriceFragment extends Fragment {
 
         PriceAdapter priceAdapter = new PriceAdapter(v.getContext(),arrayList, itemOnClickListener);
         LinearLayoutManager layoutManager = new LinearLayoutManager(v.getContext());
+//        layoutManager.setOrientation(VERTICAL);
+//        layoutManager.
         rv1.setLayoutManager(layoutManager);
         rv1.setAdapter(priceAdapter);
 
@@ -174,20 +175,35 @@ public class PriceFragment extends Fragment {
 
     private class MyOnPageChangeListener implements ViewPager.OnPageChangeListener {
 
-        int one = offset + bmpW;
 
         @Override
         public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
         }
 
+        float originPosition = offset;
+        float targetPosition = 0;
+
         @Override
         public void onPageSelected(int position) {
-            Animation animation = new TranslateAnimation(one*currIndex, one*position + offset/2,0,0);
-            currIndex = position;
+            DisplayMetrics dm = new DisplayMetrics();
+            WindowManager wm = (WindowManager) getContext()
+                    .getSystemService(Context.WINDOW_SERVICE);
+            wm.getDefaultDisplay().getMetrics(dm);
+            int screenW = dm.widthPixels;
+            offset = (screenW / 2 - ScreenTool.dip2px(getContext(), imageViewWidth))/2;
+            float positionIndex = 0;
+            if (position == 0){
+                originPosition = (screenW/2) ;
+                targetPosition = 0;
+            }else{
+                originPosition = 0;
+                targetPosition = (screenW/2);
+            }
+            Animation animation = new TranslateAnimation(originPosition, targetPosition,0,0);
             animation.setFillAfter(true);
             animation.setDuration(300);
-            imageView.startAnimation(animation);
+            imageView.startAnimation(animation );
             Toast.makeText(getContext(), "选择" + mviewPager.getCurrentItem() + "页面", Toast.LENGTH_SHORT).show();
         }
 

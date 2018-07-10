@@ -22,6 +22,7 @@ import com.example.zhudongdong.drawcorners.R;
 import com.zdd.td.mine.Adapter.HomeNewsCalendarAdapter;
 import com.zdd.td.mine.Adapter.HomeNewsKuaiXunAdapter;
 import com.zdd.td.mine.Adapter.HomeNewsNewsAdapter;
+import com.zdd.td.mine.Tool.ScreenTool;
 import com.zdd.td.mine.models.HomeNewsCalendarModel;
 import com.zdd.td.mine.models.HomeNewsKuaiXunModel;
 import com.zdd.td.mine.models.HomeNewsNewsModel;
@@ -69,10 +70,10 @@ public class HomeNewsActivity extends AppCompatActivity implements View.OnClickL
         wm.getDefaultDisplay().getMetrics(dm);
         int screenW = dm.widthPixels;
 
-        int leftMargin = dip2px(this, 45);
+        int leftMargin = ScreenTool.dip2px(this, 45);
 
         float tv_width = (screenW - leftMargin) / 3.0f;
-        float cursorWidth = (float)dip2px(this, 30);
+        float cursorWidth = (float)ScreenTool.dip2px(this, 30);
         float offsetX = (tv_width - cursorWidth) * 0.5f;
         iv_cursor.setTranslationX(cursorWidth + offsetX);
 
@@ -174,21 +175,7 @@ public class HomeNewsActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
-    /**
-     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
-     */
-    public static int dip2px(Context context, float dpValue) {
-        final float scale = context.getResources().getDisplayMetrics().density;
-        return (int) (dpValue * scale + 0.5f);
-    }
 
-    /**
-     * 根据手机的分辨率从 px(像素) 的单位 转成为 dp
-     */
-    public static int px2dip(Context context, float pxValue) {
-        final float scale = context.getResources().getDisplayMetrics().density;
-        return (int) (pxValue / scale + 0.5f);
-    }
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -196,9 +183,9 @@ public class HomeNewsActivity extends AppCompatActivity implements View.OnClickL
         DisplayMetrics dm = new DisplayMetrics();
         wm.getDefaultDisplay().getMetrics(dm);
         int screenW = dm.widthPixels;
-        int leftMargin = dip2px(this, 45);
+        int leftMargin = ScreenTool.dip2px(this, 45);
         float tv_width = (screenW - leftMargin) / 3.0f;
-        float cursorWidth = (float)dip2px(this, 30);
+        float cursorWidth = (float)ScreenTool.dip2px(this, 30);
         float offsetX = (tv_width - cursorWidth) * 0.5f;
         iv_cursor.setTranslationX(cursorWidth + offsetX + position * tv_width);
 

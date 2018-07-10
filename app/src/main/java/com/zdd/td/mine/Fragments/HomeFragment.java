@@ -18,7 +18,9 @@ import java.util.List;
 
 import com.zdd.td.mine.Activity.HomeNewsActivity;
 import com.zdd.td.mine.Activity.HomeNewsServiceActivity;
+import com.zdd.td.mine.Activity.HomeNewsWebActivity;
 import com.zdd.td.mine.Adapter.HomeAnalysisAdapter;
+import com.zdd.td.mine.Interface.HomeBottomRecyclerViewListener;
 import com.zdd.td.mine.Interface.HomeHqZiXuanListener;
 import com.zdd.td.mine.customViews.CycleViewPager;
 import com.zdd.td.mine.customViews.HomeHqView;
@@ -69,7 +71,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         list.add(analysisModel1);
         list.add(analysisModel2);
 
-        HomeAnalysisAdapter homeAnalysisAdapter = new HomeAnalysisAdapter(view.getContext(), list);
+        HomeAnalysisAdapter homeAnalysisAdapter = new HomeAnalysisAdapter(view.getContext(), list, new HomeBottomRecyclerViewListener() {
+            @Override
+            public void onClick(HomeAnalysisModel model, int index) {
+                HomeNewsWebActivity.startActivity(getContext(), model);
+            }
+        });
         //TODO为什么加 Manager ?
         LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext());
         recyclerView.setLayoutManager(layoutManager);

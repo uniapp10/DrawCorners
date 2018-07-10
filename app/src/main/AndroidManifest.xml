@@ -28,6 +28,7 @@
             android:name="com.zdd.td.mine.Fragments.MineActivity.MineProductDetailActivity"/>
         <activity android:name="com.zdd.td.mine.Activity.HomeNewsActivity"/>
         <activity android:name="com.zdd.td.mine.Activity.HomeNewsServiceActivity"/>
+        <activity android:name="com.zdd.td.mine.Activity.HomeNewsWebActivity"/>
     </application>
 
 </manifest>
